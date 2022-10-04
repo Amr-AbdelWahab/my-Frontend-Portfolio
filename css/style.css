@@ -1,9 +1,174 @@
 /* Variables */
-
+:root {
+    --main-color: #f2951c;
+    --TXT-color: rgb(255, 255, 255);
+    --BG-color: rgba(255, 255, 255, 0.842);
+    --main-trans: all 0.5s ease-in-out;
+}
 /* MY STYLES */
+* {
+    box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    -webkit-box-sizing: border-box;
+}
+body{
+    font-family: 'Cairo', sans-serif;
+    font-family: 'Open Sans', sans-serif;
+    /* font-family: 'Gloria Hallelujah', cursive; */
+    /* font-family: 'Kalam', cursive; */
+    background-color: var(--TXT-color);
+}
+/* ----------------------------------------
+----------- Setting Box ---------------
+---------------------------------------- */
+.settingsBox {
+    position: fixed;
+    top: 0;
+    left: -200px;
+    width: 200px;
+    /* min-height: calc( 100vh - 75px ); */
+    min-height: calc( 100vh );
+    border-right: 3px solid var(--main-color);
+    background-color: var(--BG-color);
+    z-index: 3;
+    transition: var(--main-trans);
+}
+.settingsBox.open {    
+    left: 0;
+}
 
+.settingsBox .gearCont {
+    position: absolute;
+    top: 200px;
+    right: -36px;
+    width: 36px;
+    padding-right: 3px;
+    background-color: var(--TXT-color);
+    border-radius: 0 23px 23px 0;
+    cursor: pointer;
+    text-align: center;
+    /* border: 3px solid transparent; */
+    border-left: none ;
+
+}
+.settingsBox .gearCont:hover{
+    background-color: var(--main-color);
+}
+.settingsBox i.gear{
+    line-height: 40px;
+    transition: var(--main-trans);
+    transition-duration: 1s;
+}
+.settingsBox i.gear.open{
+    transform: rotate(1turn);
+    /* border-color: var(--main-color); */
+
+}
+.settingsBox .settingsContainer {
+
+}
+/* ----------------------------------------
+----------- Landing Page ---------------
+---------------------------------------- */
+.landingPage {
+    min-height: 100vh;
+    background-image: url(../img/BG-02.png);
+    background-size: cover;
+    background-position: center;
+    position: relative;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+
+}
+
+.landingPage .overlay{
+    background-color: rgba(0, 0, 0, 0.61);
+    border: 6px solid var(--TXT-color);
+    border-top: none;
+    border-bottom-right-radius: 30px;
+    border-bottom-left-radius: 30px;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+}
 
 /* ---------------------------------------- */
 /* ------NAV BAR------------------------ */
 /* ---------------------------------------- */
+.landingPage nav {
+    position: relative;
+    z-index: 2;
+    color: var(--TXT-color) ;
+    display: flex;
+    padding: 10px;
+    align-items: center;
+}
+.landingPage nav .logo {
+    width: 400px;
+    padding: 15px;
+    padding-left: 30px;
+    font-family: 'Kalam', cursive;
+    font-size: x-large;
+    font-weight: bold;
+    letter-spacing: 1.5px;
+    cursor: pointer;
+    position: relative;
+}
+.landingPage nav .logo img{
+    position: absolute;
+    top: -20px;
+    height: 6rem;
+    transform: scale(0);
+}
+.landingPage nav .logo:hover img {
+    transform: scale(1);
+    top: 70px;
 
+}
+.landingPage nav .links {
+    width: 100%;
+    padding: 15px;
+    padding-left: 0;
+    padding-right: 30px;
+    text-align: right;
+}
+.landingPage nav .links li{
+    display: inline-block;
+    margin-left: 25px;
+    font-size: large;
+}
+.landingPage nav .links li:hover a,
+.landingPage nav .links li a.active{
+    color: var(--main-color);
+}
+.landingPage nav .links li a{
+    color: inherit;
+}
+/* ---------------------------------------- */
+/* ------introduction BAR--------------- */
+/* ---------------------------------------- */
+
+
+.landingPage .introduction {
+    position: absolute;
+    color: var(--TXT-color) ;
+    z-index: 2 ;
+    text-align: center;
+}
+.landingPage .introduction h1 {
+    font-size: 40px;
+}
+.landingPage .introduction h1 {
+    font-size: 35px;
+    margin: 20px 0;
+}
+.landingPage .introduction h1 strong {
+    color: var(--main-color);
+}
+.landingPage .introduction p {
+    line-height: 2;
+    font-size: 30px;
+}

@@ -62,6 +62,12 @@ li {
     margin-left: auto;
     margin-right: auto;
 }
+.centerMe {
+    transform: translate( -50%, -50%);
+    top: 50%;
+    left: 50%;
+}
+.centerTxt { text-align: center; }
 
 
 
