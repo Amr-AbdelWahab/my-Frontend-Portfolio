@@ -154,7 +154,7 @@ body{
     align-items: center;
 }
 .landingPage nav .logo {
-    width: 400px;
+    /* width: 400px; */
     padding: 15px;
     padding-left: 30px;
     font-family: 'Kalam', cursive;
@@ -164,7 +164,7 @@ body{
     cursor: pointer;
     position: relative;
 }
-.landingPage nav .logo span {
+.landingPage nav .logo a {
     color: var(--main-color);
     font-family: 'Kalam', cursive;
     font-weight: 100;
