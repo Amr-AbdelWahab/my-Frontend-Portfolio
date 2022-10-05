@@ -164,6 +164,12 @@ body{
     cursor: pointer;
     position: relative;
 }
+.landingPage nav .logo span {
+    color: var(--main-color);
+    font-family: 'Kalam', cursive;
+    font-weight: 100;
+    font-size: 15px;
+}
 .landingPage nav .logo img{
     position: absolute;
     top: -20px;

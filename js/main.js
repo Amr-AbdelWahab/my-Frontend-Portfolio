@@ -43,3 +43,4 @@ gearCont.addEventListener('click', ()=> {
     gear.classList.toggle('open');
 });
 
+
