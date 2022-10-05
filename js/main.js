@@ -1,3 +1,14 @@
+// Select colors list
+const colorList = document.querySelectorAll('.colors-List li');
+
+colorList.forEach( li => {
+    
+})
+
+
+
+
+
 // Select Landing Page
 let landingPage = document.querySelector('.landingPage');
 
@@ -19,6 +30,9 @@ setInterval ( () => {
 
 }, 5000 );
 
+
+
+
 // Spin Gear 
 let gearCont = document.querySelector('.gearCont');
 let settingsBox = document.querySelector('.settingsBox');
@@ -29,7 +43,3 @@ gearCont.addEventListener('click', ()=> {
     gear.classList.toggle('open');
 });
 
-// function openSettings () {
-//     gearCont.classList.toggle('active');
-//     gear.classList.toggle('active');
-// }

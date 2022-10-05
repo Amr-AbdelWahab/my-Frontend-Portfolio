@@ -2,7 +2,7 @@
 :root {
     --main-color: #f2951c;
     --TXT-color: rgb(255, 255, 255);
-    --BG-color: rgba(255, 255, 255, 0.842);
+    --BG-color: rgb(212, 212, 212); ;
     --main-trans: all 0.5s ease-in-out;
 }
 /* MY STYLES */
@@ -43,7 +43,7 @@ body{
     right: -36px;
     width: 36px;
     padding-right: 3px;
-    background-color: var(--TXT-color);
+    background-color: var(--BG-color);
     border-radius: 0 23px 23px 0;
     cursor: pointer;
     text-align: center;
@@ -62,11 +62,58 @@ body{
 .settingsBox i.gear.open{
     transform: rotate(1turn);
     /* border-color: var(--main-color); */
-
 }
 .settingsBox .settingsContainer {
 
 }
+/* ----------------------------------------
+----------- Color Option ---------------
+---------------------------------------- */
+.color-option {
+    
+}
+.color-option .title{
+    color: rgb(85, 134, 136);
+    font-size: larger;
+    padding: 10px;
+}
+.color-option .colors-List{
+    cursor: pointer;
+    text-align: center;
+}
+.color-option .colors-List li{
+    width: 1.2rem;
+    height: 1.2rem;
+    display: inline-block;
+    border-radius: 50%;
+    margin: 0.15rem;
+    border: 2px solid transparent;
+    opacity: .3;
+    cursor: pointer;
+}
+.color-option .colors-List li:hover{
+    opacity: 1;
+    scale: 1.2;
+}
+.color-option .colors-List li.active{
+    border-color: rgb(105, 105, 105) ;
+    opacity: 1;
+    scale: 1.2;
+
+}
+.color-option .colors-List li:nth-child(1) { background-color: #f2951c;}
+.color-option .colors-List li:nth-child(2) { background-color: #7871aa ;}
+.color-option .colors-List li:nth-child(3) { background-color: #009688;}
+.color-option .colors-List li:nth-child(4) { background-color: #f80039 ;}
+.color-option .colors-List li:nth-child(5) { background-color: #03A9F4 ;}
+.color-option .colors-List li:nth-child(6) { background-color: #4CAF50 ;}
+
+
+
+
+
+
+
 /* ----------------------------------------
 ----------- Landing Page ---------------
 ---------------------------------------- */
