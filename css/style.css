@@ -2,7 +2,8 @@
 :root {
     --main-color: #f2951c;
     --TXT-color: rgb(255, 255, 255);
-    --BG-color: rgb(212, 212, 212); ;
+    --BG-color: rgb(212, 212, 212); 
+    --BG-color: rgb(255, 255, 255);
     --main-trans: all 0.5s ease-in-out;
 }
 /* MY STYLES */
@@ -10,6 +11,7 @@
     box-sizing: border-box;
     -moz-box-sizing: border-box;
     -webkit-box-sizing: border-box;
+    transition: var(--main-trans);
 }
 body{
     font-family: 'Cairo', sans-serif;
@@ -154,7 +156,7 @@ body{
     align-items: center;
 }
 .landingPage nav .logo {
-    /* width: 400px; */
+    min-width: fit-content;
     padding: 15px;
     padding-left: 30px;
     font-family: 'Kalam', cursive;
@@ -168,8 +170,58 @@ body{
     color: var(--main-color);
     font-family: 'Kalam', cursive;
     font-weight: 100;
-    font-size: 15px;
+    font-size: 25px;
+    position: relative;
+    opacity: 0;
 }
+.landingPage nav .logo:hover a { 
+    opacity: 1;
+}
+
+
+
+
+/* .landingPage nav .logo a::before {
+    content: "";
+    border: 2px solid var(--main-color);
+    border-top: none;
+    border-left: none;
+    transform: translate( -50%, -50%);
+    transform: rotate(45deg);
+    top: -15px;
+    left: 50%;
+    width: 10px;
+    height: 10px;
+    display: inline-block;
+    position: absolute;
+    opacity: 0;
+    transition: var(--main-trans);
+} */
+/* .landingPage nav .logo:hover a::before { 
+    opacity: 0.5;
+    top: -5px;
+} */
+.landingPage nav .logo a::after {
+    content: ">>";
+    color: var(--BG-color);
+    font-family: 'Kalam', cursive;
+    font-weight: 100;
+    font-size: 25px;
+    display: inline-block;
+    position: absolute;
+    transition: var(--main-trans);
+    left: 10%;
+    opacity: 0;
+}
+.landingPage nav .logo a:hover::after { 
+    left: 110%;
+    opacity: 0.5;
+}
+
+
+
+
+
 .landingPage nav .logo img{
     position: absolute;
     top: -20px;
