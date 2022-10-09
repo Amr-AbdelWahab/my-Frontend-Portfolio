@@ -167,7 +167,8 @@ hr{
     border: 2px solid transparent;
 }
 .switch-container span:hover {
-    opacity: 1;
+    color: var(--TXT-color);
+    opacity: 7;
 }
 .switch-container span.active {
     color: var(--TXT-color);

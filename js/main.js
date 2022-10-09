@@ -71,6 +71,7 @@ let imgArray = [
     "BG-05.png"
 ];
 
+// Variable to Control Interval
 let backgroundInterval;
 
 // Random Background Change
@@ -85,7 +86,7 @@ function randomizeImgs () {
             // Change background img
             landingPage.style.backgroundImage = 'url("img/'+ imgArray[randomNumber] +'")';
         
-        }, 10000 );
+        }, 1000 );
     
     }
 }
@@ -107,17 +108,32 @@ const backgroundSwitch = document.querySelectorAll('.switch-container span');
 
 backgroundSwitch.forEach(swit => {
     swit.addEventListener('click', (e) => {
+
         e.target.parentElement.querySelectorAll(".active").forEach(btn => {
             btn.classList.remove("active");
-        })
+        });
+
         e.target.classList.add("active");
-        if (e.target.dataset.BG === 'yes') {
-            console.log("yes");
-        }else{
-            console.log("no");
+
+        if (e.target.dataset.background === 'on') { 
+
+            randomBgOption = true;
+
+            randomizeImgs();
+
+            console.log("Random Background is ON");
+
+        } else {
+
+            randomBgOption = false;
+
+            clearInterval(backgroundInterval);
+
+            console.log("Random Background is OFF");
+
         }
     
-    })
-})
+    });
+});
 
 
