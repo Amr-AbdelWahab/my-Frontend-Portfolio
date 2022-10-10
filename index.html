@@ -68,9 +68,16 @@
                 </ul>
                 <h4 class="title" title="Background-Option">Random </h4>
                 <div class="switch-container">
-                    <span data-background="on" title="ON" class="active">ON</span>
-                    <span data-background="off" title="OFF" class="">OFF</span>
+                    <span data-background="on" title="ON" class="on active">ON</span>
+                    <span data-background="off" title="OFF" class="off ">OFF</span>
                 </div>
+                <div class="timing">
+                    <label for="setTime" class="title">Change Every</label>
+                    <input type="number" name="seconds" title="seconds" id="setTime" min="0.5" max="10" value="5"
+                                onkeyup="randomizeImgs()">
+                    <span class="title ">sec.</span> <br>
+                </div>
+                    <span class="title disc">*from 0.5 to 10 s</span>
             </div>
 
             <hr>

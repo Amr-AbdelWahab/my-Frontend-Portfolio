@@ -22,8 +22,9 @@ const savedColor = localStorage.getItem("color_option") ;
 if (savedColor !== null) {
     // If Local Storage has saved color and change to it 
     document.documentElement.style.setProperty('--main-color', savedColor);
+
+
     // Change Active Class to Current Saved Color
-    // Remove Active Class
     colorList.forEach(element => {
         // Remove Active Class
         element.classList.remove("active");
@@ -56,8 +57,23 @@ colorList.forEach( li => {
 
 
 
+//----------------------------------
+// Random Background Change
+//----------------------------------
+
+
+// Variable to Control Interval
+let backgroundInterval;
 
 // Random Background Change
+let randomBgOption = true;
+
+// Switch Background option panel
+const backgroundSwitch = document.querySelectorAll('.switch-container span');
+
+
+//-------------------------------
+
 
 // Select Landing Page
 let landingPage = document.querySelector('.landingPage');
@@ -71,13 +87,40 @@ let imgArray = [
     "BG-05.png"
 ];
 
-// Variable to Control Interval
-let backgroundInterval;
 
-// Random Background Change
-let randomBgOption = true;
+
+
+// Local Storage Checker 
+const savedIntervalStatus = localStorage.getItem("interval_option")
+
+
+// If Local Storage has saved Interval Status  
+if (savedIntervalStatus !== null) {
+    // Remove Active class from All Switches
+    backgroundSwitch.forEach(element => {
+        element.classList.remove('active');
+    });
+    // Set Status and active class as Stored value in Local Storage
+    if ( savedIntervalStatus === 'true') {
+        randomBgOption = true;
+        document.querySelector('.switch-container .on').classList.add('active');
+    }else{
+        randomBgOption = false;
+        document.querySelector('.switch-container .off').classList.add('active');
+    }
+    console.log(savedIntervalStatus);
+}
+
+
+
+// Create Function for Randomize Background Images 
+let setTime = document.getElementById('setTime').value;
+let timer = setTime * 1000;
+
+console.log(timer);
 
 function randomizeImgs () {
+
     if (randomBgOption === true ) {
         backgroundInterval = setInterval ( () => {
             // Get Random Number
@@ -86,53 +129,49 @@ function randomizeImgs () {
             // Change background img
             landingPage.style.backgroundImage = 'url("img/'+ imgArray[randomNumber] +'")';
         
-        }, 10000 );
+        }, timer);
     
     }
 }
 
 
-
+// Trigger Random Background Images
 randomizeImgs();
-// clearInterval(backgroundInterval);
 
 
-
-
-
-
-
-
-// Switch Background option panel
-const backgroundSwitch = document.querySelectorAll('.switch-container span');
 
 backgroundSwitch.forEach(swit => {
+    // Add Click Event to Each Switch
     swit.addEventListener('click', (e) => {
 
         e.target.parentElement.querySelectorAll(".active").forEach(btn => {
+            // Remove Active Class from all BTNs
             btn.classList.remove("active");
         });
-
+        // Add Active Class to Selected BTN
         e.target.classList.add("active");
 
         if (e.target.dataset.background === 'on') { 
-
+            // Set Random Background Option to false
             randomBgOption = true;
 
+            // Trigger Randomize Imgs Function
             randomizeImgs();
 
-            console.log("Random Background is ON");
+            // Set local Storage to True
+            localStorage.setItem('interval_option', true);  console.log("Random Background is ON");
 
         } else {
-
+            // Set Random Background Option to false
             randomBgOption = false;
 
+            // Clear background Interval Randomize Imgs
             clearInterval(backgroundInterval);
 
-            console.log("Random Background is OFF");
-
+            // Set local Storage to False
+            localStorage.setItem('interval_option', false); console.log("Random Background is OFF");
+            
         }
-    
     });
 });
 
