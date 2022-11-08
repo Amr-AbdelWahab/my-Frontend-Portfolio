@@ -114,20 +114,18 @@ if (savedIntervalStatus !== null) {
 
 
 // Create Function for Randomize Background Images 
-let setTime = document.getElementById('setTime').value;
-let timer = setTime * 1000;
 
-console.log(timer);
 
 function randomizeImgs () {
-
-    if (randomBgOption === true ) {
+  let setTime = document.getElementById('setTime').value;
+  let timer = setTime * 1000;
+  console.log(timer);
+  if (randomBgOption == true ) {
         backgroundInterval = setInterval ( () => {
             // Get Random Number
             let randomNumber = Math.floor(Math.random() * imgArray.length);
-        
             // Change background img
-            landingPage.style.backgroundImage = 'url("img/'+ imgArray[randomNumber] +'")';
+            landingPage.style.backgroundImage = 'url("img/BG/'+ imgArray[randomNumber] +'")';
         
         }, timer);
     

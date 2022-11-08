@@ -55,12 +55,15 @@ li {
     display: none;
 }
 
+.txtcent {
+  text-align: center;
+}
 
 .container {
+    /* width: 1170px; */
     padding-left: 15px;
     padding-right: 15px;
-    margin-left: auto;
-    margin-right: auto;
+    margin: auto;
 }
 .centerMe {
     transform: translate( -50%, -50%);
