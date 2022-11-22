@@ -112,13 +112,13 @@ if (savedIntervalStatus !== null) {
 }
 
 
-
 // Create Function for Randomize Background Images 
-
+let setTime;
+let timer;
 
 function randomizeImgs () {
-  let setTime = document.getElementById('setTime').value;
-  let timer = setTime * 1000;
+  setTime = document.getElementById('setTime').value;
+  timer = setTime * 1000;
   console.log(timer);
   if (randomBgOption == true ) {
         backgroundInterval = setInterval ( () => {
@@ -150,27 +150,62 @@ backgroundSwitch.forEach(swit => {
         e.target.classList.add("active");
 
         if (e.target.dataset.background === 'on') { 
+            clearActiveClass ();
             // Set Random Background Option to false
             randomBgOption = true;
+            console.log(randomBgOption);
 
             // Trigger Randomize Imgs Function
             randomizeImgs();
 
             // Set local Storage to True
-            localStorage.setItem('interval_option', true);  console.log("Random Background is ON");
+            localStorage.setItem('interval_option', true);
 
         } else {
-            // Set Random Background Option to false
-            randomBgOption = false;
-
-            // Clear background Interval Randomize Imgs
-            clearInterval(backgroundInterval);
-
-            // Set local Storage to False
-            localStorage.setItem('interval_option', false); console.log("Random Background is OFF");
-            
+          stopChangingBackground();
         }
     });
 });
 
 
+
+
+
+// //! Func.
+// // Stop Changing Background 
+
+function stopChangingBackground (){
+      // Set Random Background Option to false
+      randomBgOption = false;
+
+      // Clear background Interval Randomize Imgs
+      clearInterval(backgroundInterval);
+
+      // Set local Storage to False
+      localStorage.setItem('interval_option', false);
+}
+
+
+
+
+let bgListBtns = document.querySelectorAll('.BG-List li' );
+bgListBtns.forEach(bgBtn => {
+  bgBtn.addEventListener('click', (e) => {
+    stopChangingBackground ();
+    clearActiveClass ();
+    e.target.classList.add('active'); // console.log(typeof e.target.classList); // console.log(e.target); 
+
+    // Change background img
+    landingPage.style.backgroundImage = 'url("img/BG/'+ imgArray[e.target.dataset.bgn] +'")';
+    // Set local Storage background ID
+    localStorage.setItem('bgID', e.target.dataset.bgn);
+
+  })
+})
+
+// clear active class from all BG BTNs
+function clearActiveClass () {
+  document.querySelectorAll('.BG-List li' ).forEach(btn =>{
+    btn.classList.remove('active');
+  })
+}

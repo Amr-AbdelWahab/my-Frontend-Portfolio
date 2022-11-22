@@ -423,3 +423,24 @@ hr{
   max-width: 750px;
   width: 100%;
 }
+
+
+
+
+
+
+
+
+
+center.portofolio a {
+  padding-bottom: 100px;
+}
+center.portofolio a {
+  scale: 1.02;
+  transition: all 0.5s ease;
+}
+center.portofolio a:hover {
+  transform: scale(1.1);
+  color: red;
+letter-spacing: 2px;
+}
